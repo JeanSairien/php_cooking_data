@@ -122,11 +122,76 @@ $top = $brut["feed"]["entry"]; # liste de films
 			
 				echo "</ol>" ;
 
-				echo array_search(max(array_count_values($cat)), array_count_values($cat))."est la categorie la plus presente biatch" ;
+				echo array_search(max(array_count_values($cat)), array_count_values($cat))." est la categorie la plus presente biatch" ;
 
 		?>
 
+	<p>le putain de realistaeur le plus present bitch ! </p>	
+		<?php
+		 $real= [] ;
+			echo "<ol>" ;
+			for($i = 0 ; $i < count($top) ; $i++) {
+			 	array_push($real, $top[$i]['im:artist']['label']);	
+			  }
+				array_count_values($real) ;
+			
+				echo "</ol>" ;
 
+				echo array_search(max(array_count_values($real)), array_count_values($real)) ;
+
+				?>		
+
+	<p>Cout du top 10</p>
+	<?php
+			/*echo "<ol>" ;
+		 		$prix= [] ;
+		 		$sum = 0 ;
+			for($i= 0 ; $i < 10 ; i++){
+			 	array_push($prix, $top[$i]['im:price']['label']);	
+			 		 	$sum += $value[['im:price']['label']] ;
+
+
+			  } 
+			 		
+			 		
+				print_r(array_count_values($prix)) ;
+				print_r(array_sum($prix));
+					print_r($prix) ;
+			
+				echo  "</ol>" ;*/
+
+				?>			
+
+				<?php 
+		 			echo "<ol>";
+		 			
+		 			for ($i=0; $i < 10 ; $i++) { 
+		 				
+		 			
+					
+						echo "<li>".$top[$i]['im:name']['label']."</li>";
+				
+						echo "<li>".$top[$i]['im:price']['label']."</li>";
+							}
+					echo "</ol>";
+				?>
+
+	<p>le mois avec le plus de sortie</p>			
+			<?php
+		 	$month= [] ;
+				echo "<ol>" ;
+					for($i = 0 ; $i < count($top) ; $i++) {
+			 			array_push($month, $top[$i]['attributes']['label']);	
+			  }
+						array_count_values($month) ;
+			
+						echo "</ol>" ;
+
+						echo array_search(max(array_count_values($month)), array_count_values($month)) ;
+
+
+
+				?>		
 
 	</pre>
 	 
