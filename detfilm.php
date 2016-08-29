@@ -33,22 +33,32 @@ $top = $brut["feed"]["entry"]; # liste de films
 	<?php 
 		
 		 echo "<ol>";
-		
-			foreach ($top as $key => $value) {
-				if($top[$key]['im:releaseDate']['label'] <= "2000")
-				echo "<li>".$top['im:releaseDate']['label']."</li>";
-				# code...
-			}
+				$prix= [] ;
+			for($i = 0 ; $i < 100 ; $i++) {
+			 	array_push($prix, $top[$i]['im:price']['label']);
+			 		if($prix['im:price']['label'] <= "$9.99");
+			 			return array_push($prix, $top[$i]);	 
+			 			}	
+			 		
+			 		
+				
+				echo "<li>".$top[$i]['im:releaseDate']['label']."</li>";
+				echo "</br>" ;
+				
+				echo "<li>".$prix[$j]['im:price']['label']."</li>";
+				print_r(array_count_values($top));
+				
+				print_r(array_count_values($prix)) ;
+				print_r(array_sum($prix));
+					print_r($prix) ;		
+			  		
+
+			
 			
 				echo "</ol>";
 	?>
-	<?php 
-
-	print_r($top) ;
-
-
-	?>
-
+	
+	
 
 
 

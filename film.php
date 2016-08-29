@@ -143,10 +143,10 @@ $top = $brut["feed"]["entry"]; # liste de films
 
 	<p>Cout du top 10</p>
 	<?php
-			/*echo "<ol>" ;
+			echo "<ol>" ;
 		 		$prix= [] ;
 		 		$sum = 0 ;
-			for($i= 0 ; $i < 10 ; i++){
+			for($i= 0 ; $i < 10 ; $i++){
 			 	array_push($prix, $top[$i]['im:price']['label']);	
 			 		 	$sum += $value[['im:price']['label']] ;
 
@@ -161,8 +161,8 @@ $top = $brut["feed"]["entry"]; # liste de films
 				echo  "</ol>" ;*/
 
 				?>			
-
 				<?php 
+				/*
 		 			echo "<ol>";
 		 			
 		 			for ($i=0; $i < 10 ; $i++) { 
@@ -188,9 +188,7 @@ $top = $brut["feed"]["entry"]; # liste de films
 						echo "</ol>" ;
 
 						echo array_search(max(array_count_values($month)), array_count_values($month)) ;
-
-
-
+						
 				?>		
 
 	</pre>
