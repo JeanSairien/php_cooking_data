@@ -30,6 +30,7 @@ $top = $brut["feed"]["entry"]; # liste de films
 		foreach ($top as $key => $value) {
 			
 		echo $value['im:name']['label'];
+		
 		}
 			
 		
