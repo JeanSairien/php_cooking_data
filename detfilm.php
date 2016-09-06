@@ -35,8 +35,8 @@ $top = $brut["feed"]["entry"]; # liste de films
 		 echo "<ol>";
 		
 			foreach ($top as $key => $value) {
-				if($top[$key]['rights']['label'] <= "2000")
-				echo "<li>".$value['rights']['label']."</li>";
+				if($top[$key]['im:releaseDate']['label'] <= "2000")
+				echo "<li>".$top['im:releaseDate']['label']."</li>";
 				# code...
 			}
 			
@@ -48,6 +48,19 @@ $top = $brut["feed"]["entry"]; # liste de films
 
 
 	?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	

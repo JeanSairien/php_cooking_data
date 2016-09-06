@@ -34,13 +34,16 @@ $top = $brut["feed"]["entry"]; # liste de films
 			
 
 				echo "<li>".$top[$i]['im:name']['label']."</li>";
+				echo "<li>".$top[$i]['im:releaseDate']['label']."</li>";
 			}
 				echo "</ol>";
 	?>
+
+
 	<p>rechercher la position de gravity</p>
 	<?php 
 	echo "<ol>";
-		for($i = 0; $i < count($top); $i++){
+		for($i = 1; $i < count($top); $i++){
 			if($top[$i-1]['im:name']['label'] == "Gravity")
 				echo "<li>". $i ."</li>" ;		
 		}
@@ -64,28 +67,64 @@ $top = $brut["feed"]["entry"]; # liste de films
 		echo "<ol>";
 		for($i = 0; $i < count($top); $i++){
 			if($top[$i]['im:releaseDate']['label'] <= "2000"){
-				echo "<li>". $top[$i]['im:releaseDate']['label'] ."</li>" ;		
+				echo "<li>". $top[$i]['im:releaseDate']['label'] ."</li>" ;	
+				echo "<li>". $top[$i]['im:name']['label']."</li>" ;	
 			}
 		}
 			echo "</ol>" ;
 	?>
 	
-	<p>Le film le plus vieux  </p>
+<p>Le film le plus vieux  </p>
 	<?php
 		$old =array();
 		echo "<ol>";
 		for($i = 0; $i < 100; $i++){
 			if($top[$i]['im:releaseDate']['label'] <= "2000"){
-				echo "<li>". $top[$i]['im:releaseDate']['label'] ." est l'année du film le plus vieux"."</li>" ;	
-				array_push($old, $top[$i]['im:releaseDate']['label']);
+					
+				count( array_push($old, $i));
 				
 					
 			}
 		}
 			echo "</ol>" ;
-			echo $old ;
 
+
+			for($i = 0; $i < count($top); $i++){
+			$release[$top[$i]['im:name']['label']] = $top[$i]['im:releaseDate']['label'];
+
+			}
+			echo array_search(min($release), $release). "est le film le plus vieux";
+			
+?>
+
+
+
+
+<p>film le plus rescent </p>
+		<?php
+			for($i = 0; $i < count($top); $i++){
+			$release[$top[$i]['im:name']['label']] = $top[$i]['im:releaseDate']['label'];
+
+
+		}
+			echo array_search(max($release), $release)." est le film le plus rescent ";
+			
 	?>
+
+	<p>categorie la plus presente bitch !! </p>
+		<?php
+		 $cat= [] ;
+			echo "<ol>" ;
+			for($i = 0 ; $i < count($top) ; $i++) {
+			 	array_push($cat, $top[$i]['category']['attributes']['label']);	
+			  }
+				print_r(array_count_values($cat)) ;
+			
+				echo "</ol>" ;
+
+				echo array_search(max(array_count_values($cat)), array_count_values($cat))."est la categorie la plus presente biatch" ;
+
+		?>
 
 
 
